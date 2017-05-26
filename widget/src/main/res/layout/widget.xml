@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:divider="?android:dividerVertical"
+    android:showDividers="middle"
+    android:background="#6661aaff">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="81dp"
+        android:layout_height="match_parent"
+        android:id="@+id/ll0"
+        android:layout_marginLeft="1dp" android:layout_marginTop="6dp"
+        android:layout_marginRight="1dp" android:layout_marginBottom="1dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_time"
+            android:id="@+id/time0" android:textSize="6pt"
+            android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_from"
+            android:id="@+id/from0" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_to"
+            android:id="@+id/to0" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_time_left"
+            android:id="@+id/remain0" android:textSize="6pt"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="81dp"
+        android:layout_height="match_parent"
+        android:id="@+id/ll1"
+        android:layout_marginLeft="1dp" android:layout_marginTop="6dp"
+        android:layout_marginRight="1dp" android:layout_marginBottom="1dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_time"
+            android:id="@+id/time1" android:textSize="6pt"
+            android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_from"
+            android:id="@+id/from1" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_to"
+            android:id="@+id/to1" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_time_left"
+            android:id="@+id/remain1" android:textSize="6pt"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="81dp"
+        android:layout_height="match_parent"
+        android:id="@+id/ll2"
+        android:layout_marginLeft="1dp" android:layout_marginTop="6dp"
+        android:layout_marginRight="1dp" android:layout_marginBottom="1dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_time"
+            android:id="@+id/time2" android:textSize="6pt" android:layout_gravity="center_horizontal"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_from"
+            android:id="@+id/from2" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_to"
+            android:id="@+id/to2" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_time_left"
+            android:id="@+id/remain2" android:textSize="6pt"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="81dp"
+        android:layout_height="match_parent"
+        android:id="@+id/ll3"
+        android:layout_marginLeft="1dp" android:layout_marginTop="6dp"
+        android:layout_marginRight="1dp" android:layout_marginBottom="1dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_time"
+            android:id="@+id/time3" android:textSize="6pt" android:layout_gravity="center_horizontal"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_from"
+            android:id="@+id/from3" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_to"
+            android:id="@+id/to3" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_time_left"
+            android:id="@+id/remain3" android:textSize="6pt"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+</LinearLayout>
