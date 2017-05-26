@@ -1,4 +1,4 @@
-package ru.kest.mylibrary;
+package ru.kest.trainswidget;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("ru.kest.mylibrary", appContext.getPackageName());
+        assertEquals("ru.kest.trainswidget", appContext.getPackageName());
     }
 }

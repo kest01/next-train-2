@@ -1,4 +1,4 @@
-package ru.kest.mylibrary;
+package ru.kest.trainswidget;
 
 import org.junit.Test;
 
