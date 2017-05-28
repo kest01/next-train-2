@@ -23,7 +23,7 @@ public interface Constants {
     int ELEMENT_COUNT = 4;
 
     // General
-    String LOG_TAG = "nextTrainsLogs";
+    String LOG_TAG = "trainsWidgetLogs";
     String PACKAGE_NAME = "ru.kest.trainswidget";
 
     // Actions

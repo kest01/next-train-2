@@ -28,7 +28,7 @@ public class YandexToDomainConverter {
                 domainThread.setTitle(yandexThread.getThread().getShortTitle());
 
                 if (yandexThread.getThread().getShortTitle() != null) {
-                    String[] stations = yandexThread.getThread().getShortTitle().split(" - ");
+                    String[] stations = yandexThread.getThread().getShortTitle().split(" — ");
                     domainThread.setFrom(stations[0]);
                     domainThread.setTo(stations[1]);
                 }
