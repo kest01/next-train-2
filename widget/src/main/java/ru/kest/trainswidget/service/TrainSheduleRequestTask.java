@@ -20,7 +20,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import lombok.Getter;
 import ru.kest.trainswidget.converters.YandexToDomainConverter;
 import ru.kest.trainswidget.data.DataProvider;
 import ru.kest.trainswidget.data.DataService;
@@ -46,8 +45,11 @@ public class TrainSheduleRequestTask extends AsyncTask<Void, Void, String> {
 
     private Context context;
 
-    @Getter
     private static AtomicBoolean executed = new AtomicBoolean(false);
+
+    public static AtomicBoolean getExecuted() {
+        return executed;
+    }
 
     public TrainSheduleRequestTask(Context context) {
         this.context = context;
@@ -56,7 +58,7 @@ public class TrainSheduleRequestTask extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(Void... params) {
         Log.d(LOG_TAG, "TrainSheduleRequestTask.doInBackground()");
-        DataProvider dataProvider = DataService.getDataProvider(context);
+        DataProvider dataProvider = new DataService(context).getDataProvider();
         try {
             List<TrainThread> fromHomeTrains = loadTrainSchedule(true);
             if (!fromHomeTrains.isEmpty()) {

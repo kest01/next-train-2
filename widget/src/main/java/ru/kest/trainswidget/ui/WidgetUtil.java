@@ -35,7 +35,7 @@ public class WidgetUtil {
             updateWidget(context, appWidgetManager, id);
         }
 
-        if (!DataService.getDataProvider(context).isSetTrainThreads()) {
+        if (!new DataService(context).getDataProvider().isSetTrainThreads()) {
             SchedulerUtil.sendTrainScheduleRequest(context, alarmManager);
         }
         SchedulerUtil.scheduleUpdateWidget(context, alarmManager);
@@ -46,7 +46,7 @@ public class WidgetUtil {
         RemoteViews widgetView = new RemoteViews(PACKAGE_NAME, R.layout.widget);
         clearAllWidgetFields(context, widgetView);
 
-        DataProvider dataProvider = DataService.getDataProvider(context);
+        DataProvider dataProvider = new DataService(context).getDataProvider();
 
         if (dataProvider.isSetTrainThreads() && dataProvider.isSetLastLocation()) {
             List<TrainThread> trainThreads = WidgetUtil.getTrainsToDisplay(dataProvider);

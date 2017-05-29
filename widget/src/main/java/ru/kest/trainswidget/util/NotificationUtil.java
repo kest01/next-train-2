@@ -33,7 +33,7 @@ import static ru.kest.trainswidget.Constants.NOTIFICATION_ID;
 public class NotificationUtil {
 
     public static void createOrUpdateNotification(Context context) {
-        TrainThread thread = DataService.getDataProvider(context).getNotificationTrain();
+        TrainThread thread = new DataService(context).getDataProvider().getNotificationTrain();
         Log.d(LOG_TAG, "createOrUpdateNotification: " + thread);
         if (thread == null) {
             return;
@@ -70,7 +70,7 @@ public class NotificationUtil {
     private static NotificationSoundAndVibro checkAndGetSount(Context context, int remainMinutes) {
 
         NotificationSoundAndVibro result = new NotificationSoundAndVibro();
-        TimeLimits tl = new TimeLimits(DataService.getDataProvider(context));
+        TimeLimits tl = new TimeLimits(new DataService(context).getDataProvider());
 
         if (tl.getTimeLimit(FIRST_CALL) == remainMinutes) {
             result.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));

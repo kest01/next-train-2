@@ -44,7 +44,7 @@ public class UIUpdater {
 
     public static void updateThread(Context context, RemoteViews widgetView, int threadNum, TrainThread thread) {
         Resources res = context.getResources();
-        TimeLimits tl = new TimeLimits(DataService.getDataProvider(context));
+        TimeLimits tl = new TimeLimits(new DataService(context).getDataProvider());
 
         widgetView.setTextViewText(getElementId(res, "time", threadNum), DateUtil.getTime(thread.getDeparture()) + " - " + DateUtil.getTime(thread.getArrival()));
         widgetView.setTextViewText(getElementId(res, "from", threadNum), thread.getFrom());
