@@ -68,6 +68,7 @@ public class LocationClient implements GoogleApiClient.ConnectionCallbacks, Goog
             throw new RuntimeException("Permissions required!");
         }
         Location location = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
+        Log.d(LOG_TAG, "Location: " + location);
         if(location != null){
             if (dataProvider.isSetLastLocation()) {
                 if (location.distanceTo(dataProvider.getLastLocation()) > 500) { // difference more then 500 meters
