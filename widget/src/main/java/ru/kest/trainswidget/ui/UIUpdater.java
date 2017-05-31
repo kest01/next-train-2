@@ -51,7 +51,7 @@ public class UIUpdater {
         widgetView.setTextViewText(getElementId(res, "to",   threadNum), thread.getTo());
 
         int remainId = getElementId(res, "remain", threadNum);
-        int remainMinutes = TimeLimits.getTimeDiffInMinutes(thread.getDeparture());
+        int remainMinutes = DateUtil.getTimeDiffInMinutes(thread.getDeparture());
 
         widgetView.setTextViewText(remainId, getFormattedRemainText(remainMinutes, remainMinutes < tl.getTimeLimit(GREEN_STATUS)));
         widgetView.setTextColor(remainId, getRemainColor(remainMinutes, tl));

@@ -39,7 +39,7 @@ public class NotificationUtil {
             return;
         }
 
-        int remainMinutes = TimeLimits.getTimeDiffInMinutes(thread.getDeparture());
+        int remainMinutes = DateUtil.getTimeDiffInMinutes(thread.getDeparture());
 
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         nm.notify(NOTIFICATION_ID, createNotification(context, remainMinutes, thread));

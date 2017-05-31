@@ -1,13 +1,25 @@
 package ru.kest.trainswidget.data;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import ru.kest.trainswidget.model.domain.NearestStation;
 
-import static ru.kest.trainswidget.Constants.*;
+import static ru.kest.trainswidget.Constants.FIRST_CALL;
+import static ru.kest.trainswidget.Constants.GREEN_STATUS;
+import static ru.kest.trainswidget.Constants.HOME_FIRST_CALL;
+import static ru.kest.trainswidget.Constants.HOME_GREEN_STATUS;
+import static ru.kest.trainswidget.Constants.HOME_LAST_CALL;
+import static ru.kest.trainswidget.Constants.HOME_RED_STATUS;
+import static ru.kest.trainswidget.Constants.HOME_YELLOW_STATUS;
+import static ru.kest.trainswidget.Constants.LAST_CALL;
+import static ru.kest.trainswidget.Constants.RED_STATUS;
+import static ru.kest.trainswidget.Constants.WORK_FIRST_CALL;
+import static ru.kest.trainswidget.Constants.WORK_GREEN_STATUS;
+import static ru.kest.trainswidget.Constants.WORK_LAST_CALL;
+import static ru.kest.trainswidget.Constants.WORK_RED_STATUS;
+import static ru.kest.trainswidget.Constants.WORK_YELLOW_STATUS;
+import static ru.kest.trainswidget.Constants.YELLOW_STATUS;
 
 /**
  * Created by KKharitonov on 14.02.2016.
@@ -46,8 +58,4 @@ public class TimeLimits {
         return timeLimitsMap.get(nearestStation).get(key);
     }
 
-    public static int getTimeDiffInMinutes(Date time) {
-        long diffInMillies = System.currentTimeMillis() - time.getTime();
-        return (int) TimeUnit.MINUTES.convert(Math.abs(diffInMillies), TimeUnit.MILLISECONDS);
-    }
 }
