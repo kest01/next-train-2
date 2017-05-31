@@ -9,6 +9,6 @@ import android.content.Context
  */
 class DataService(context: Context) {
 
-    val dataProvider: DataProvider = DataProviderImpl(context)
+    val dataProvider: DataProvider by lazy { DataProviderImpl(context) }
 
 }
