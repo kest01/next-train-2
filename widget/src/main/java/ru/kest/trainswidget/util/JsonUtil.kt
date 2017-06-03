@@ -16,10 +16,10 @@ import java.text.SimpleDateFormat
 object JsonUtil {
 
     private val jsonMapper: ObjectMapper by lazy {
-        val localMapper = ObjectMapper()
-        localMapper.dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-        localMapper.propertyNamingStrategy = PropertyNamingStrategy.SNAKE_CASE
-        localMapper
+        ObjectMapper().apply {
+            dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            propertyNamingStrategy = PropertyNamingStrategy.SNAKE_CASE
+        }
     }
 
     fun objectToString(source: Any): String {
