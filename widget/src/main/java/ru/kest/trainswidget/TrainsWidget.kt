@@ -10,7 +10,7 @@ import android.widget.Toast
 import ru.kest.trainswidget.Constants.*
 import ru.kest.trainswidget.data.DataService
 import ru.kest.trainswidget.service.LocationClient
-import ru.kest.trainswidget.service.TrainSheduleRequestTask
+import ru.kest.trainswidget.service.TrainScheduleRequestTask
 import ru.kest.trainswidget.ui.WidgetUtil
 import ru.kest.trainswidget.util.NotificationUtil
 import ru.kest.trainswidget.util.SchedulerUtil
@@ -71,8 +71,8 @@ class TrainsWidget : AppWidgetProvider() {
                 WidgetUtil.updateWidgets(context, appWidgetManager, ids)
             }
             UPDATE_LOCATION -> LocationClient(context).connect()
-            TRAIN_SCHEDULE_REQUEST -> if (TrainSheduleRequestTask.getExecuted().compareAndSet(false, true)) {
-                TrainSheduleRequestTask(context).execute()
+            TRAIN_SCHEDULE_REQUEST -> if (TrainScheduleRequestTask.executed.compareAndSet(false, true)) {
+                TrainScheduleRequestTask(context).execute()
             }
             CREATE_NOTIFICATION -> if (dataProvider.isSetTrainThreads) {
                 val threadHash = intent.getIntExtra(RECORD_HASH, 0)
