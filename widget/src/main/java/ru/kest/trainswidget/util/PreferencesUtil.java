@@ -37,19 +37,19 @@ public class PreferencesUtil {
         String json = preferences.getString(TRAINS_FROM_HOME, null);
         Log.d(LOG_TAG, "JSON: " + json);
         if (json != null) {
-            trainsFromHomeToWork = JsonUtil.stringToList(json, TrainThread.class);
+            trainsFromHomeToWork = JsonUtil.INSTANCE.stringToList(json, TrainThread.class);
         }
 
         json = preferences.getString(TRAINS_FROM_WORK, null);
         Log.d(LOG_TAG, "JSON: " + json);
         if (json != null) {
-            trainsFromWorkToHome = JsonUtil.stringToList(json, TrainThread.class);
+            trainsFromWorkToHome = JsonUtil.INSTANCE.stringToList(json, TrainThread.class);
         }
 
         json = preferences.getString(NOTIFICATION_TRAIN, null);
         Log.d(LOG_TAG, "JSON: " + json);
         if (json != null) {
-            notificationTrain = JsonUtil.stringToObject(json, TrainThread.class);
+            notificationTrain = JsonUtil.INSTANCE.stringToObject(json, TrainThread.class);
         }
 
         Double locationLatitude = getDouble(preferences, LOCATION_LATITUDE, null);
@@ -82,7 +82,7 @@ public class PreferencesUtil {
 
     public static void saveNotificationTrain(Context context, TrainThread train) {
         SharedPreferences.Editor editor = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE).edit();
-        String json = JsonUtil.objectToString(train);
+        String json = JsonUtil.INSTANCE.objectToString(train);
         Log.d(LOG_TAG, "saveTrains:" + json);
         editor.putString(NOTIFICATION_TRAIN, json);
         editor.apply();
@@ -90,7 +90,7 @@ public class PreferencesUtil {
 
     private static void saveTrains(Context context, String key, List<TrainThread> trains) {
         SharedPreferences.Editor editor = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE).edit();
-        String json = JsonUtil.objectToString(trains);
+        String json = JsonUtil.INSTANCE.objectToString(trains);
         Log.d(LOG_TAG, "saveTrains:(" + key + ") " + json);
         editor.putString(key, json);
         editor.apply();
