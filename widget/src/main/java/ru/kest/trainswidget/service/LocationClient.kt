@@ -9,7 +9,7 @@ import android.util.Log
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.LocationServices
-import ru.kest.trainswidget.Constants.LOG_TAG
+import ru.kest.trainswidget.LOG_TAG
 import ru.kest.trainswidget.data.DataProvider
 import ru.kest.trainswidget.data.DataService
 import ru.kest.trainswidget.util.SchedulerUtil

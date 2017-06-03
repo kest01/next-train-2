@@ -4,7 +4,7 @@ import android.app.AlarmManager
 import android.content.Context
 import android.os.AsyncTask
 import android.util.Log
-import ru.kest.trainswidget.Constants.LOG_TAG
+import ru.kest.trainswidget.LOG_TAG
 import ru.kest.trainswidget.converters.YandexToDomainConverter
 import ru.kest.trainswidget.data.DataService
 import ru.kest.trainswidget.model.domain.TrainThread

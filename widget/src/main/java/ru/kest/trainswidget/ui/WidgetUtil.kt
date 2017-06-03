@@ -5,7 +5,9 @@ import android.content.Context
 import android.content.res.Resources
 import android.util.Log
 import android.widget.RemoteViews
-import ru.kest.trainswidget.Constants.*
+import ru.kest.trainswidget.ELEMENT_COUNT
+import ru.kest.trainswidget.LOG_TAG
+import ru.kest.trainswidget.PACKAGE_NAME
 import ru.kest.trainswidget.R
 import ru.kest.trainswidget.data.DataProvider
 import ru.kest.trainswidget.data.DataService

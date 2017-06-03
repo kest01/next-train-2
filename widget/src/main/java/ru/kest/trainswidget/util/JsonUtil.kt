@@ -4,7 +4,7 @@ import android.util.Log
 import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.PropertyNamingStrategy
-import ru.kest.trainswidget.Constants.LOG_TAG
+import ru.kest.trainswidget.LOG_TAG
 import java.io.IOException
 import java.text.SimpleDateFormat
 

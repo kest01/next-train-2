@@ -9,8 +9,7 @@ import android.text.SpannableString
 import android.text.style.StyleSpan
 import android.util.Log
 import android.widget.RemoteViews
-import ru.kest.trainswidget.Constants.*
-import ru.kest.trainswidget.PopUpActivity
+import ru.kest.trainswidget.*
 import ru.kest.trainswidget.data.DataService
 import ru.kest.trainswidget.data.TimeLimits
 import ru.kest.trainswidget.model.domain.TrainThread

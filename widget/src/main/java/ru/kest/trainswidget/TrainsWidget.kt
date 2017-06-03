@@ -7,7 +7,6 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.widget.Toast
-import ru.kest.trainswidget.Constants.*
 import ru.kest.trainswidget.data.DataService
 import ru.kest.trainswidget.service.LocationClient
 import ru.kest.trainswidget.service.TrainScheduleRequestTask

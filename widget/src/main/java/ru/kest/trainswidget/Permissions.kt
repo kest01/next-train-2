@@ -9,8 +9,6 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
 
-import ru.kest.trainswidget.Constants.LOG_TAG
-
 /**
  * Permission checker and handler
  */

@@ -1,6 +1,6 @@
 package ru.kest.trainswidget.data
 
-import ru.kest.trainswidget.Constants.*
+import ru.kest.trainswidget.*
 import ru.kest.trainswidget.model.domain.NearestStation
 
 /**
