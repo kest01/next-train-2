@@ -36,7 +36,9 @@ class DataProviderImpl(private val context: Context) : DataProvider {
     override var lastLocation: Location?
         get() = dataStorage.lastLocation
         set(value) {
-            PreferencesUtil.saveLastLocation(context, value)
+            if (value != null) {
+                PreferencesUtil.saveLastLocation(context, value)
+            }
             dataStorage.lastLocation = value
         }
 
@@ -46,7 +48,9 @@ class DataProviderImpl(private val context: Context) : DataProvider {
     override var notificationTrain: TrainThread?
         get() = dataStorage.notificationTrain
         set(value) {
-            PreferencesUtil.saveNotificationTrain(context, value)
+            if (value != null) {
+                PreferencesUtil.saveNotificationTrain(context, value)
+            }
             dataStorage.notificationTrain = value
         }
 
