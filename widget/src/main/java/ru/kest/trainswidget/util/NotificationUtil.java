@@ -1,9 +1,6 @@
 package ru.kest.trainswidget.util;
 
-import android.app.AlarmManager;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
+import android.app.*;
 import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
@@ -20,11 +17,7 @@ import ru.kest.trainswidget.data.TimeLimits;
 import ru.kest.trainswidget.model.domain.TrainThread;
 import ru.kest.trainswidget.ui.UIUpdater;
 
-import static ru.kest.trainswidget.Constants.DELETED_NOTIFICATION;
-import static ru.kest.trainswidget.Constants.FIRST_CALL;
-import static ru.kest.trainswidget.Constants.LAST_CALL;
-import static ru.kest.trainswidget.Constants.LOG_TAG;
-import static ru.kest.trainswidget.Constants.NOTIFICATION_ID;
+import static ru.kest.trainswidget.Constants.*;
 
 /**
  * Created by Konstantin on 26.05.2017.
@@ -49,7 +42,7 @@ public class NotificationUtil {
     }
 
     private static Notification createNotification(Context context, int remainMinutes, TrainThread thread) {
-        String remainText = UIUpdater.getRemainText(remainMinutes);
+        String remainText = UIUpdater.INSTANCE.getRemainText(remainMinutes);
 
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(context)

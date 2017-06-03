@@ -8,10 +8,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 import ru.kest.trainswidget.R;
 import ru.kest.trainswidget.data.DataProvider;
@@ -20,9 +17,7 @@ import ru.kest.trainswidget.model.domain.NearestStation;
 import ru.kest.trainswidget.model.domain.TrainThread;
 import ru.kest.trainswidget.util.SchedulerUtil;
 
-import static ru.kest.trainswidget.Constants.ELEMENT_COUNT;
-import static ru.kest.trainswidget.Constants.LOG_TAG;
-import static ru.kest.trainswidget.Constants.PACKAGE_NAME;
+import static ru.kest.trainswidget.Constants.*;
 
 /**
  * Created by Konstantin on 26.05.2017.
@@ -51,7 +46,7 @@ public class WidgetUtil {
         if (dataProvider.isSetTrainThreads() && dataProvider.isSetLastLocation()) {
             List<TrainThread> trainThreads = WidgetUtil.getTrainsToDisplay(dataProvider);
             for (int i = 0; i < ELEMENT_COUNT && i < trainThreads.size(); i++) {
-                UIUpdater.updateThread(context, widgetView, i, trainThreads.get(i));
+                UIUpdater.INSTANCE.updateThread(context, widgetView, i, trainThreads.get(i));
             }
             // Обновляем виджет
             appWidgetManager.updateAppWidget(widgetID, widgetView);
@@ -63,7 +58,7 @@ public class WidgetUtil {
 
     private static void clearAllWidgetFields(Context context, RemoteViews widgetView) {
         for (int i = 0; i < ELEMENT_COUNT; i++) {
-            UIUpdater.clearThread(context, widgetView, i);
+            UIUpdater.INSTANCE.clearThread(context, widgetView, i);
         }
     }
 
