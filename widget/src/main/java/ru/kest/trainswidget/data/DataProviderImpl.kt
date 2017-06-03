@@ -71,6 +71,7 @@ class DataProviderImpl(private val context: Context) : DataProvider {
 
     private fun getThreadByHash(threads: List<TrainThread>?, hash: Int): TrainThread? {
         if (threads != null) {
+            @Suppress("LoopToCallChain")
             for (thread in threads) {
                 if (thread.hashCode() == hash) {
                     return thread
