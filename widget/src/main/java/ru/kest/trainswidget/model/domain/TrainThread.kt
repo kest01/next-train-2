@@ -15,5 +15,6 @@ data class TrainThread
                              @JsonProperty("title") var title: String,
 
                              @JsonProperty("from") var from: String? = null,
-                             @JsonProperty("to") var to: String? = null
+                             @JsonProperty("to") var to: String? = null,
+                             @JsonProperty("comfortLevel") var comfortLevel: TrainComfortLevel = TrainComfortLevel.REGULAR
 )

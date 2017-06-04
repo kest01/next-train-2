@@ -1,5 +1,6 @@
 package ru.kest.trainswidget.converters
 
+import ru.kest.trainswidget.model.domain.TrainComfortLevel
 import ru.kest.trainswidget.model.domain.TrainThread
 import ru.kest.trainswidget.model.yandex.ScheduleResponse
 import java.util.*
@@ -21,9 +22,14 @@ object YandexToDomainConverter {
 
                 val domainThread = TrainThread(arrival = arrival!!, departure = departure, title = thread?.shortTitle ?: "")
                 if (thread != null) {
-                    val stations = thread.shortTitle.split(" — ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-                    domainThread.from = stations[0]
-                    domainThread.to = stations[1]
+                    if (thread.shortTitle != null) {
+                        val stations = thread.shortTitle.split(" — ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+                        domainThread.from = stations[0]
+                        domainThread.to = stations[1]
+                    }
+                    if (thread.number != null) {
+                        domainThread.comfortLevel = TrainComfortLevel.getComfortLevel(thread.number)
+                    }
                 }
                 result.add(domainThread)
             }

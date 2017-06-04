@@ -1,6 +1,8 @@
 package ru.kest.trainswidget.model.yandex
 
+import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonProperty
 import java.util.*
 
 /**
@@ -18,8 +20,9 @@ data class ScheduleResponse(val threads: List<ApiTrainThread> = emptyList()) {
             val duration: Float = 0.toFloat(),
             val thread: Thread? = null
     ) {
-
         @JsonIgnoreProperties(ignoreUnknown = true)
-        data class Thread(val shortTitle: String = "")
+        data class Thread
+        @JsonCreator constructor(@JsonProperty("short_title") val shortTitle: String?,
+                                 @JsonProperty("number") val number: String?)
     }
 }

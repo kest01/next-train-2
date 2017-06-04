@@ -12,6 +12,7 @@ import android.widget.RemoteViews
 import ru.kest.trainswidget.*
 import ru.kest.trainswidget.data.DataService
 import ru.kest.trainswidget.data.TimeLimits
+import ru.kest.trainswidget.model.domain.TrainComfortLevel
 import ru.kest.trainswidget.model.domain.TrainThread
 import ru.kest.trainswidget.ui.WidgetUtil.getElementId
 import ru.kest.trainswidget.util.DateUtil
@@ -37,8 +38,14 @@ object UIUpdater {
         val tl = TimeLimits(DataService(context).dataProvider)
 
         widgetView.setTextViewText(getElementId(res, "time", threadNum), DateUtil.getTime(thread.departure) + " - " + DateUtil.getTime(thread.arrival))
-        widgetView.setTextViewText(getElementId(res, "from", threadNum), thread.from)
-        widgetView.setTextViewText(getElementId(res, "to", threadNum), thread.to)
+
+        val fromId = getElementId(res, "from", threadNum)
+        widgetView.setTextViewText(fromId, thread.from)
+        widgetView.setTextColor(fromId, getComfortColor(thread.comfortLevel))
+
+        val toId = getElementId(res, "to", threadNum)
+        widgetView.setTextViewText(toId, thread.to)
+        widgetView.setTextColor(toId, getComfortColor(thread.comfortLevel))
 
         val remainId = getElementId(res, "remain", threadNum)
         val remainMinutes = DateUtil.getTimeDiffInMinutes(thread.departure)
@@ -55,6 +62,12 @@ object UIUpdater {
         remainMinutes < tl.getTimeLimit(RED_STATUS) -> Color.RED
         remainMinutes < tl.getTimeLimit(YELLOW_STATUS) -> Color.YELLOW
         remainMinutes < tl.getTimeLimit(GREEN_STATUS) -> Color.GREEN
+        else -> Color.LTGRAY
+    }
+
+    private fun getComfortColor(comfortLevel: TrainComfortLevel): Int
+            = when (comfortLevel) {
+        TrainComfortLevel.REGULAR -> Color.GREEN
         else -> Color.LTGRAY
     }
 
