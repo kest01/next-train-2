@@ -39,7 +39,7 @@ class LocationClient(context: Context) : GoogleApiClient.ConnectionCallbacks, Go
     }
 
     override fun onConnected(bundle: Bundle?) {
-        Log.d(LOG_TAG, "onConnected: " + googleApiClient)
+        Log.d(LOG_TAG, "onConnected: $googleApiClient")
         if (updateLastLocation(DataService(googleApiClient.context).dataProvider)) {
             SchedulerUtil.sendUpdateWidget(googleApiClient.context)
         }
@@ -48,11 +48,11 @@ class LocationClient(context: Context) : GoogleApiClient.ConnectionCallbacks, Go
     }
 
     override fun onConnectionSuspended(i: Int) {
-        Log.d(LOG_TAG, "onConnectionSuspended: " + i)
+        Log.d(LOG_TAG, "onConnectionSuspended: $i")
     }
 
     override fun onConnectionFailed(connectionResult: ConnectionResult) {
-        Log.d(LOG_TAG, "onConnectionFailed: " + connectionResult)
+        Log.d(LOG_TAG, "onConnectionFailed: $connectionResult")
     }
 
     private fun updateLastLocation(dataProvider: DataProvider): Boolean {
@@ -60,7 +60,7 @@ class LocationClient(context: Context) : GoogleApiClient.ConnectionCallbacks, Go
             throw RuntimeException("Permissions required!")
         }
         val location = LocationServices.FusedLocationApi.getLastLocation(googleApiClient)
-        Log.d(LOG_TAG, "Location: " + location)
+        Log.d(LOG_TAG, "Location: $location")
         if (location != null) {
             if (dataProvider.isSetLastLocation) {
                 if (location.distanceTo(dataProvider.lastLocation) > 500) { // difference more then 500 meters

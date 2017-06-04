@@ -26,7 +26,7 @@ object JsonUtil {
         try {
             return jsonMapper.writeValueAsString(source)
         } catch (e: JsonProcessingException) {
-            Log.e(LOG_TAG, "JsonUtil.objectToString() error saving object: " + source, e)
+            Log.e(LOG_TAG, "JsonUtil.objectToString() error saving object: $source", e)
             throw RuntimeException(e)
         }
 
@@ -36,7 +36,7 @@ object JsonUtil {
         try {
             return jsonMapper.readValue(content, clazz)
         } catch (e: IOException) {
-            Log.e(LOG_TAG, "JsonUtil.stringToObject() error parsing json: " + content, e)
+            Log.e(LOG_TAG, "JsonUtil.stringToObject() error parsing json: $content", e)
             throw RuntimeException(e)
         }
 
@@ -46,7 +46,7 @@ object JsonUtil {
         try {
             return jsonMapper.readValue<List<T>>(content, jsonMapper.typeFactory.constructCollectionType(List::class.java, clazz))
         } catch (e: IOException) {
-            Log.e(LOG_TAG, "JsonUtil.stringToList() error parsing json: " + content, e)
+            Log.e(LOG_TAG, "JsonUtil.stringToList() error parsing json: $content", e)
             throw RuntimeException(e)
         }
 

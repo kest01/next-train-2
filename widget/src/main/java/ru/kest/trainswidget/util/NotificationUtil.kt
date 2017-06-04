@@ -44,7 +44,7 @@ object NotificationUtil {
 
         val builder = NotificationCompat.Builder(context)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Электричка через " + remainText)
+                .setContentTitle("Электричка через $remainText")
                 .setTicker(remainText)
                 .setContentText(DateUtil.getTime(thread.departure) + " " + thread.title)
 
@@ -67,7 +67,7 @@ object NotificationUtil {
             )
         } else if (tl.getTimeLimit(LAST_CALL) == remainMinutes) {
             return NotificationSoundAndVibro(
-                    Uri.parse("android.resource://" + context.packageName + "/" + R.raw.train_horn),
+                    Uri.parse("android.resource://${context.packageName}/${R.raw.train_horn}"),
                     longArrayOf(0, 500, 200, 500, 200, 500)
             )
         }

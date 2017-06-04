@@ -61,7 +61,7 @@ class TrainsWidget : AppWidgetProvider() {
         super.onReceive(context, intent)
         val dataProvider = DataService(context).dataProvider
 
-        Log.d(LOG_TAG, "onReceive: " + intent + " - " + this)
+        Log.d(LOG_TAG, "onReceive: $intent - $this")
         when (intent.action) {
             UPDATE_ALL_WIDGETS -> {
                 val thisAppWidget = ComponentName(context.packageName, javaClass.name)

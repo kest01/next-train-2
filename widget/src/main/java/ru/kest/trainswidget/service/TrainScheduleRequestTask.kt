@@ -42,12 +42,12 @@ class TrainScheduleRequestTask(private val context: Context) : AsyncTask<Void, V
             val fromHomeTrains = loadTrainSchedule(true)
             if (!fromHomeTrains.isEmpty()) {
                 dataProvider.trainsFromHomeToWork = fromHomeTrains
-                Log.d(LOG_TAG, "fromHomeTrains: " + fromHomeTrains)
+                Log.d(LOG_TAG, "fromHomeTrains: $fromHomeTrains")
             }
             val fromWorkTrains = loadTrainSchedule(false)
             if (!fromWorkTrains.isEmpty()) {
                 dataProvider.trainsFromWorkToHome = fromWorkTrains
-                Log.d(LOG_TAG, "fromWorkTrains: " + fromWorkTrains)
+                Log.d(LOG_TAG, "fromWorkTrains: $fromWorkTrains")
             }
             return SUCCESS_RESPONSE
         } catch (e: Exception) {
@@ -61,7 +61,6 @@ class TrainScheduleRequestTask(private val context: Context) : AsyncTask<Void, V
         Log.i(LOG_TAG, "onPostExecute()")
         val timeToNextExecute: Int
         if (SUCCESS_RESPONSE == response) {
-            //            Log.i(LOG_TAG, "Train schedules successfully updated: " + FieldDataStorage.getTrainsFromHomeToWork().size() + "  " + FieldDataStorage.getTrainsFromWorkToHome().size());
             Log.i(LOG_TAG, "Train schedules successfully updated")
             SchedulerUtil.sendUpdateWidget(context)
             timeToNextExecute = 2 * 60 // 2 hours
@@ -76,7 +75,6 @@ class TrainScheduleRequestTask(private val context: Context) : AsyncTask<Void, V
     @Throws(IOException::class)
     private fun loadTrainSchedule(fromHome: Boolean): List<TrainThread> {
         val content = getUrlContent(createURL(fromHome))
-        //        Log.d(LOG_TAG, "service response: " + content);
 
         val response = JsonUtil.stringToObject(content, ScheduleResponse::class.java)
 
@@ -87,7 +85,7 @@ class TrainScheduleRequestTask(private val context: Context) : AsyncTask<Void, V
     private fun getUrlContent(url: URL): String {
         var urlConnection: HttpURLConnection? = null
         val result = StringBuilder()
-        Log.i(LOG_TAG, "Getting content for url " + url)
+        Log.i(LOG_TAG, "Getting content for url $url")
         try {
             urlConnection = url.openConnection() as HttpURLConnection
             val reader = BufferedReader(InputStreamReader(BufferedInputStream(urlConnection.inputStream)))

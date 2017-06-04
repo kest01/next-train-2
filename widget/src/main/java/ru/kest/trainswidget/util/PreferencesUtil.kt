@@ -80,7 +80,7 @@ object PreferencesUtil {
     fun saveNotificationTrain(context: Context, train: TrainThread) {
         val editor = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE).edit()
         val json = JsonUtil.objectToString(train)
-        Log.d(LOG_TAG, "saveTrains:" + json)
+        Log.d(LOG_TAG, "saveTrains: $json")
         editor.putString(NOTIFICATION_TRAIN, json)
         editor.apply()
     }
