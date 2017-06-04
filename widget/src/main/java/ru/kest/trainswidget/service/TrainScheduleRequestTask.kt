@@ -27,14 +27,13 @@ import java.util.concurrent.atomic.AtomicBoolean
  *
  * Created by Konstantin on 26.05.2017.
  */
-
-private val URL_TEMPLATE = "https://api.rasp.yandex.net/v1.0/search/?apikey=4616c13e-bcc2-49e3-b88a-5a1437ea7a40&format=json&from=%s&to=%s&lang=ru&date=%s"
-private val HOME_STATION_CODE = "s9601770"
-private val WORK_STATION_CODE = "s9601251"
-
-private val SUCCESS_RESPONSE = "OK"
-
 class TrainScheduleRequestTask(private val context: Context) : AsyncTask<Void, Void, String>() {
+
+    private val URL_TEMPLATE = "https://api.rasp.yandex.net/v1.0/search/?apikey=4616c13e-bcc2-49e3-b88a-5a1437ea7a40&format=json&from=%s&to=%s&lang=ru&date=%s"
+    private val HOME_STATION_CODE = "s9601770"
+    private val WORK_STATION_CODE = "s9601251"
+
+    private val SUCCESS_RESPONSE = "OK"
 
     override fun doInBackground(vararg params: Void): String {
         Log.d(LOG_TAG, "TrainScheduleRequestTask.doInBackground()")

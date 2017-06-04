@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.location.Location
 import android.util.Log
-import ru.kest.trainswidget.Constants.LOG_TAG
+import ru.kest.trainswidget.LOG_TAG
 import ru.kest.trainswidget.data.FieldDataStorage
 import ru.kest.trainswidget.model.domain.TrainThread
 

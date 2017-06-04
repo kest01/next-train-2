@@ -10,9 +10,7 @@ import android.media.RingtoneManager
 import android.net.Uri
 import android.support.v4.app.NotificationCompat
 import android.util.Log
-import ru.kest.trainswidget.Constants.*
-import ru.kest.trainswidget.R
-import ru.kest.trainswidget.TrainsWidget
+import ru.kest.trainswidget.*
 import ru.kest.trainswidget.data.DataService
 import ru.kest.trainswidget.data.TimeLimits
 import ru.kest.trainswidget.model.domain.TrainThread
@@ -82,6 +80,7 @@ object NotificationUtil {
         return PendingIntent.getBroadcast(context, 0, deleteIntent, 0)
     }
 
+    @Suppress("ArrayInDataClass")
     private data class NotificationSoundAndVibro(var sound: Uri?, var vibroPattern: LongArray?)
 
 

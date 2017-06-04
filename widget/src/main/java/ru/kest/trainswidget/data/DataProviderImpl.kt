@@ -58,7 +58,7 @@ class DataProviderImpl(private val context: Context) : DataProvider {
         get() = notificationTrain != null
 
     override val nearestStation: NearestStation?
-        get() = if (isSetLastLocation) NearestStation.getNearestStation(lastLocation) else null
+        get() = if (lastLocation != null) NearestStation.getNearestStation(lastLocation!!) else null
 
 
     override fun getThreadByHash(hash: Int): TrainThread? {
