@@ -9,17 +9,17 @@ import java.util.*
  * Created by KKharitonov on 06.01.2016.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-data class ScheduleResponse(val threads: List<TrainThread>?) {
+data class ScheduleResponse(val threads: List<ApiTrainThread> = emptyList()) {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    data class TrainThread(
-            val arrival: Date?,
-            val departure: Date?,
+    data class ApiTrainThread(
+            val arrival: Date? = null,
+            val departure: Date? = null,
             val duration: Float = 0.toFloat(),
-            val thread: Thread?
+            val thread: Thread? = null
     ) {
 
         @JsonIgnoreProperties(ignoreUnknown = true)
-        data class Thread(val shortTitle: String?)
+        data class Thread(val shortTitle: String = "")
     }
 }

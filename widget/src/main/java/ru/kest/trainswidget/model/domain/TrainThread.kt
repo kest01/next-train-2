@@ -1,5 +1,7 @@
 package ru.kest.trainswidget.model.domain
 
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonProperty
 import java.util.*
 
 /**
@@ -7,11 +9,11 @@ import java.util.*
  *
  * Created by KKharitonov on 07.01.2016.
  */
-data class TrainThread(
-        var arrival: Date,
-        var departure: Date,
-        var title: String,
+data class TrainThread
+    @JsonCreator constructor(@JsonProperty("arrival") var arrival: Date,
+                             @JsonProperty("departure") var departure: Date,
+                             @JsonProperty("title") var title: String,
 
-        var from: String? = null,
-        var to: String? = null
+                             @JsonProperty("from") var from: String? = null,
+                             @JsonProperty("to") var to: String? = null
 )
