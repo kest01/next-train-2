@@ -2,6 +2,8 @@ package ru.kest.trainswidget.data
 
 import android.content.Context
 import android.location.Location
+import android.util.Log
+import ru.kest.trainswidget.LOG_TAG
 
 import ru.kest.trainswidget.model.domain.NearestStation
 import ru.kest.trainswidget.model.domain.TrainThread
@@ -13,6 +15,10 @@ import ru.kest.trainswidget.util.PreferencesUtil
  * Created by KKharitonov on 14.02.2016.
  */
 class DataProviderImpl(private val context: Context) : DataProvider {
+
+    init {
+        Log.d(LOG_TAG, "## Read properties")
+    }
 
     private val dataStorage: FieldDataStorage = PreferencesUtil.createDataStorage(context)
 
