@@ -13,14 +13,14 @@ object YandexToDomainConverter {
 
     fun scheduleResponseToDomain(trainScheduleResponse: ScheduleResponse?): List<TrainThread> {
         val result = ArrayList<TrainThread>()
-        if (trainScheduleResponse != null && trainScheduleResponse.threads != null && trainScheduleResponse.threads.isNotEmpty()) {
+        if (trainScheduleResponse != null && trainScheduleResponse.threads.isNotEmpty()) {
             for ((arrival, departure, _, thread) in trainScheduleResponse.threads) {
                 if (departure!!.before(Date())) {
                     continue
                 }
 
-                val domainThread = TrainThread(arrival = arrival!!, departure = departure, title = thread!!.shortTitle ?: "")
-                if (thread.shortTitle != null) {
+                val domainThread = TrainThread(arrival = arrival!!, departure = departure, title = thread?.shortTitle ?: "")
+                if (thread != null) {
                     val stations = thread.shortTitle.split(" — ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
                     domainThread.from = stations[0]
                     domainThread.to = stations[1]

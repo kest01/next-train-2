@@ -66,9 +66,11 @@ class TrainScheduleRequestTask(private val context: Context) : AsyncTask<Void, V
             timeToNextExecute = 2 * 60 // 2 hours
         } else {
             timeToNextExecute = 5 // 5 min
-            Log.w(LOG_TAG, "unsuccess result code: $response. reschedule retrieve data in 5 minute")
+            Log.w(LOG_TAG, "unsuccessful result code: $response. reschedule retrieve data in 5 minute")
         }
-        SchedulerUtil.scheduleTrainScheduleRequest(context, context.getSystemService(Context.ALARM_SERVICE) as AlarmManager, timeToNextExecute)
+        SchedulerUtil.scheduleTrainScheduleRequest(context,
+                context.getSystemService(Context.ALARM_SERVICE) as AlarmManager,
+                timeToNextExecute)
         executed.set(false)
     }
 
@@ -96,7 +98,7 @@ class TrainScheduleRequestTask(private val context: Context) : AsyncTask<Void, V
                 line = reader.readLine()
             }
         } finally {
-            urlConnection!!.disconnect()
+            urlConnection?.disconnect()
         }
 
         return result.toString()

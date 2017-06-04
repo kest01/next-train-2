@@ -38,9 +38,10 @@ class PopUpActivity : Activity() {
                 .setMessage("Следить за рейсом $details?")
                 .setPositiveButton(android.R.string.yes) { dialog, _ ->
                     //                Intent onClickIntent = new Intent(context, TrainsWidget.class);
-                    val notificationIntent = Intent(this@PopUpActivity, TrainsWidget::class.java)
-                    notificationIntent.action = CREATE_NOTIFICATION
-                    notificationIntent.putExtra(RECORD_HASH, extras.getInt(RECORD_HASH))
+                    val notificationIntent = Intent(this@PopUpActivity, TrainsWidget::class.java).apply {
+                        action = CREATE_NOTIFICATION
+                        putExtra(RECORD_HASH, extras.getInt(RECORD_HASH))
+                    }
                     sendBroadcast(notificationIntent)
 
                     // Handle a positive answer

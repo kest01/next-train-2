@@ -23,6 +23,9 @@ import ru.kest.trainswidget.ui.UIUpdater
  */
 object NotificationUtil {
 
+    @Suppress("ArrayInDataClass")
+    private data class NotificationSoundAndVibro(var sound: Uri?, var vibroPattern: LongArray?)
+
     fun createOrUpdateNotification(context: Context) {
         val thread = DataService(context).dataProvider.notificationTrain
         Log.d(LOG_TAG, "createOrUpdateNotification: $thread")
@@ -48,8 +51,8 @@ object NotificationUtil {
                 .setTicker(remainText)
                 .setContentText(DateUtil.getTime(thread.departure) + " " + thread.title)
 
-        val soundAndVibro = checkAndGetSount(context, remainMinutes)
-        if (soundAndVibro != null) {
+        val soundAndVibro = checkAndGetSound(context, remainMinutes)
+        soundAndVibro?.let {
             builder.setSound(soundAndVibro.sound)
             builder.setVibrate(soundAndVibro.vibroPattern)
         }
@@ -57,7 +60,7 @@ object NotificationUtil {
         return builder.build()
     }
 
-    private fun checkAndGetSount(context: Context, remainMinutes: Int): NotificationSoundAndVibro? {
+    private fun checkAndGetSound(context: Context, remainMinutes: Int): NotificationSoundAndVibro? {
         val tl = TimeLimits(DataService(context).dataProvider)
 
         if (tl.getTimeLimit(FIRST_CALL) == remainMinutes) {
@@ -79,9 +82,5 @@ object NotificationUtil {
         deleteIntent.action = DELETED_NOTIFICATION
         return PendingIntent.getBroadcast(context, 0, deleteIntent, 0)
     }
-
-    @Suppress("ArrayInDataClass")
-    private data class NotificationSoundAndVibro(var sound: Uri?, var vibroPattern: LongArray?)
-
 
 }

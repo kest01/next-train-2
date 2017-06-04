@@ -50,17 +50,12 @@ object UIUpdater {
         widgetView.setOnClickPendingIntent(getElementId(res, "ll", threadNum), createPopUpDialogPendingIntent(context, thread))
     }
 
-    private fun getRemainColor(remainMinutes: Int, tl: TimeLimits): Int {
-        if (remainMinutes < tl.getTimeLimit(RED_STATUS)) {
-            return Color.RED
-        } else if (remainMinutes < tl.getTimeLimit(YELLOW_STATUS)) {
-            return Color.YELLOW
-        } else if (remainMinutes < tl.getTimeLimit(GREEN_STATUS)) {
-            return Color.GREEN
-        } else {
-            //            return android.R.color.primary_text_dark;
-            return Color.LTGRAY
-        }
+    private fun getRemainColor(remainMinutes: Int, tl: TimeLimits): Int
+            = when {
+        remainMinutes < tl.getTimeLimit(RED_STATUS) -> Color.RED
+        remainMinutes < tl.getTimeLimit(YELLOW_STATUS) -> Color.YELLOW
+        remainMinutes < tl.getTimeLimit(GREEN_STATUS) -> Color.GREEN
+        else -> Color.LTGRAY
     }
 
     private fun getFormattedRemainText(remainMinutes: Int, isBold: Boolean): SpannableString {

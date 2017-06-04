@@ -11,7 +11,7 @@ import ru.kest.trainswidget.PACKAGE_NAME
 import ru.kest.trainswidget.R
 import ru.kest.trainswidget.data.DataProvider
 import ru.kest.trainswidget.data.DataService
-import ru.kest.trainswidget.model.domain.NearestStation
+import ru.kest.trainswidget.model.domain.NearestStation.HOME
 import ru.kest.trainswidget.model.domain.TrainThread
 import ru.kest.trainswidget.util.SchedulerUtil
 import java.util.*
@@ -70,17 +70,13 @@ object WidgetUtil {
 
     private fun getTrainsToDisplay(dataProvider: DataProvider): List<TrainThread> {
         val trainThreads: List<TrainThread>
-        if (dataProvider.nearestStation == NearestStation.HOME) {
-            trainThreads = dataProvider.trainsFromHomeToWork
-        } else {
-            trainThreads = dataProvider.trainsFromWorkToHome
-        }
+                = if (dataProvider.nearestStation == HOME) dataProvider.trainsFromHomeToWork
+                else dataProvider.trainsFromWorkToHome
+
         val indexOfNextTrains = indexOfNextTrains(trainThreads)
-        if (indexOfNextTrains != null) {
-            return trainThreads.subList(indexOfNextTrains, trainThreads.size)
-        } else {
-            return emptyList()
-        }
+
+        return if (indexOfNextTrains != null) trainThreads.subList(indexOfNextTrains, trainThreads.size)
+            else emptyList()
     }
 
     private fun indexOfNextTrains(trainThreads: List<TrainThread>): Int? {

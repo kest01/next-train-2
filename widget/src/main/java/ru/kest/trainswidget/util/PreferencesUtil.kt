@@ -33,19 +33,19 @@ object PreferencesUtil {
 
         var json = preferences.getString(TRAINS_FROM_HOME, null)
         Log.d(LOG_TAG, "JSON: $json")
-        if (json != null) {
+        json?.let {
             trainsFromHomeToWork = JsonUtil.stringToList(json, TrainThread::class.java)
         }
 
         json = preferences.getString(TRAINS_FROM_WORK, null)
         Log.d(LOG_TAG, "JSON: $json")
-        if (json != null) {
+        json?.let {
             trainsFromWorkToHome = JsonUtil.stringToList(json, TrainThread::class.java)
         }
 
         json = preferences.getString(NOTIFICATION_TRAIN, null)
         Log.d(LOG_TAG, "JSON: $json")
-        if (json != null) {
+        json?.let {
             notificationTrain = JsonUtil.stringToObject(json, TrainThread::class.java)
         }
 
