@@ -19,17 +19,24 @@
             android:layout_height="wrap_content"
             android:text="@string/default_time"
             android:id="@+id/time0" android:textSize="6pt"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:lines="1"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/default_from"
-            android:id="@+id/from0" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/from0"
+            android:textSize="6pt"
+            android:layout_gravity="center_horizontal"
+            android:lines="1"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/default_to"
-            android:id="@+id/to0" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/to0"
+            android:textSize="6pt"
+            android:layout_gravity="center_horizontal"
+            android:lines="1"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,23 +56,27 @@
             android:layout_height="wrap_content"
             android:text="@string/default_time"
             android:id="@+id/time1" android:textSize="6pt"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:lines="1"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/default_from"
-            android:id="@+id/from1" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/from1" android:textSize="6pt" android:layout_gravity="center_horizontal"
+            android:lines="1"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/default_to"
-            android:id="@+id/to1" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/to1" android:textSize="6pt" android:layout_gravity="center_horizontal"
+            android:lines="1"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/default_time_left"
             android:id="@+id/remain1" android:textSize="6pt"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:lines="1"/>
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
@@ -79,23 +90,26 @@
             android:layout_height="wrap_content"
             android:text="@string/default_time"
             android:id="@+id/time2" android:textSize="6pt" android:layout_gravity="center_horizontal"
-            />
+            android:lines="1"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/default_from"
-            android:id="@+id/from2" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/from2" android:textSize="6pt" android:layout_gravity="center_horizontal"
+            android:lines="1"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/default_to"
-            android:id="@+id/to2" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/to2" android:textSize="6pt" android:layout_gravity="center_horizontal"
+            android:lines="1"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/default_time_left"
             android:id="@+id/remain2" android:textSize="6pt"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:lines="1"/>
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
@@ -110,22 +124,25 @@
             android:layout_height="wrap_content"
             android:text="@string/default_time"
             android:id="@+id/time3" android:textSize="6pt" android:layout_gravity="center_horizontal"
-            />
+            android:lines="1"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/default_from"
-            android:id="@+id/from3" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/from3" android:textSize="6pt" android:layout_gravity="center_horizontal"
+            android:lines="1"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/default_to"
-            android:id="@+id/to3" android:textSize="6pt" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/to3" android:textSize="6pt" android:layout_gravity="center_horizontal"
+            android:lines="1"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/default_time_left"
             android:id="@+id/remain3" android:textSize="6pt"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:lines="1"/>
     </LinearLayout>
 </LinearLayout>
