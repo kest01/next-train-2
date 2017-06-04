@@ -67,7 +67,7 @@ object UIUpdater {
 
     private fun getComfortColor(comfortLevel: TrainComfortLevel): Int
             = when (comfortLevel) {
-        TrainComfortLevel.REGULAR -> Color.GREEN
+        TrainComfortLevel.COMFORT -> Color.GREEN
         else -> Color.LTGRAY
     }
 
