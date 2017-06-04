@@ -32,19 +32,19 @@ object PreferencesUtil {
         val preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
         var json = preferences.getString(TRAINS_FROM_HOME, null)
-        Log.d(LOG_TAG, "JSON: $json")
+//        Log.d(LOG_TAG, "JSON: $json")
         json?.let {
             trainsFromHomeToWork = JsonUtil.stringToList(json, TrainThread::class.java)
         }
 
         json = preferences.getString(TRAINS_FROM_WORK, null)
-        Log.d(LOG_TAG, "JSON: $json")
+//        Log.d(LOG_TAG, "JSON: $json")
         json?.let {
             trainsFromWorkToHome = JsonUtil.stringToList(json, TrainThread::class.java)
         }
 
         json = preferences.getString(NOTIFICATION_TRAIN, null)
-        Log.d(LOG_TAG, "JSON: $json")
+//        Log.d(LOG_TAG, "JSON: $json")
         json?.let {
             notificationTrain = JsonUtil.stringToObject(json, TrainThread::class.java)
         }
